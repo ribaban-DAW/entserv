@@ -11,8 +11,10 @@
 // muestres por pantalla: información sobre el servidor, ruta de la carpeta del servidor,
 // nombre del servidor, software de servidor, protocolo, método de la petición.
 
-$random_width = rand(1, 10);
-echo "<h1 style=\"border: ${random_width}px solid black\">Línea de tamaño aleatorio</h1>";
+$random_width = rand(1, 10); // https://www.php.net/manual/en/function.rand.php
+
+// Un h1 con un borde que representa la línea con un grosor de 4px y con una anchura aleatoria.
+echo "<h1 style=\"border-bottom: 4px solid black; width: ${random_width}em;\">Línea de tamaño aleatorio</h1>";
 
 ?>
 

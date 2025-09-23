@@ -11,10 +11,12 @@
 // muestres por pantalla: información sobre el servidor, ruta de la carpeta del servidor,
 // nombre del servidor, software de servidor, protocolo, método de la petición.
 
-// https://www.php.net/manual/en/reserved.variables.server.php
 echo "<h1>Variables Superglobales de PHP</h1>", PHP_EOL;
 
+// https://www.php.net/manual/en/function.phpinfo.php
 echo "<p>Información del servidor: " . phpinfo(-1) . "</p>", PHP_EOL;
+
+// https://www.php.net/manual/en/reserved.variables.server.php
 echo "<p>Ruta de la carpeta del servidor: $_SERVER['PATH_INFO']</p>", PHP_EOL;
 echo "<p>Nombre del servidor: $_SERVER['SERVER_NAME']</p>", PHP_EOL;
 echo "<p>Software del servidor: $_SERVER['SERVER_SOFTWARE']</p>", PHP_EOL;
