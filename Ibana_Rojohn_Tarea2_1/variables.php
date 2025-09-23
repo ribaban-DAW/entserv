@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Tarea 2.1.1</title>
 </head>
 <body>
@@ -40,7 +42,7 @@ $i1 = 10;
 $i2 = 2;
 $d1 = 2.5;
 
-echo "<h1>Tarea 2.1</h1>";
+echo "<h1>Tarea 2.1.1</h1>";
 echo "<h2>Operaciones con dos enteros</h2>", PHP_EOL;
 echo "<p>$i1 + $i2 = ", sum($i1, $i2), "</p>", PHP_EOL;
 echo "<p>$i1 - $i2 = ", rest($i1, $i2), "</p>", PHP_EOL;
@@ -49,8 +51,7 @@ echo "<p>$i1 / $i2 = ", div($i1, $i2), "</p>", PHP_EOL;
 echo "<p>$i1 ^ $i2 = ", pot($i1, $i2), "</p>", PHP_EOL;
 echo "<p>$i1 % $i2 = ", mod($i1, $i2), "</p>", PHP_EOL;
 
-echo "========================================", PHP_EOL;
-echo "Operaciones con un entero y un decimal", PHP_EOL;
+echo "<h2>Operaciones con un entero y un decimal</h2>", PHP_EOL;
 echo "<p>$i1 + $d1 = ", sum($i1, $d1), "</p>", PHP_EOL;
 echo "<p>$i1 - $d1 = ", rest($i1, $d1), "</p>", PHP_EOL;
 echo "<p>$i1 * $d1 = ", mult($i1, $d1), "</p>", PHP_EOL;
