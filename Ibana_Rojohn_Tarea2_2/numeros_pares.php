@@ -14,24 +14,30 @@
 
 echo "<h1>Tarea 2.2.1</h1>";
 function mostrarTabla($num) {
-	return "<tr><td style=\"border: 1px solid black; text-align: center;\">$num</td></tr>";
+	return "<td style=\"border: 1px solid black; text-align: center; padding: 3px;\">$num</td>";
 }
 
 function mostrarLista($num) {
-	return "<ul><li>$num</li></ul>";
+	return "<li>$num</li>";
 }
 
 echo "<h2>Números pares en una tabla</h2>";
 echo "<table style=\"border: 1px solid black;\">";
+echo "<tbody>";
+echo "<tr>";
 for ($i = 0; $i <= 100; $i += 2) {
 	echo mostrarTabla($i), PHP_EOL;
 }
+echo "</tr>";
+echo "</tbody>";
 echo "</table>";
 
 echo "<h2>Números impares en una lista no numerada</h2>";
+echo "<ul>", PHP_EOL;
 for ($i = 1; $i <= 100; $i += 2) {
 	echo mostrarLista($i), PHP_EOL;
 }
+echo "</ul>", PHP_EOL;
 
 ?>
 

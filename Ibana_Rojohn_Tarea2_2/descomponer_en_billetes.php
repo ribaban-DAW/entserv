@@ -13,25 +13,31 @@
 // Con este número debéis generar un código que nos devuelva esa cantidad en
 // billetes y monedas de euros, utilizando el menor número de ellos posible.
 
-// TODO(srvariable): Pensar en un nombre mejor para billete, porque en realidad hay
-// tanto billetes como monedas
-function descomponerEnBilletes($cantidad) {
-	$billetes = [500, 200, 100, 50, 20, 10, 5, 2, 1];
-	$billete_cantidad = [];
-	foreach ($billetes as $billete) {
-		$billete_cantidad[$billete] = 0;
+function descomponerPrecio($cantidad) {
+	$precios = [500, 200, 100, 50, 20, 10, 5, 2, 1];
+	$precio_cantidad = [];
+	foreach ($precios as $precio) {
+		$precio_cantidad[$precio] = 0;
 	}
 	
 	$i = 0;
 	while ($cantidad > 0) {
-		while ($cantidad >= $billetes[$i]) {
-			$cantidad -= $billetes[$i];
-			$billete_cantidad[$billetes[$i]] += 1;
+		while ($cantidad >= $precios[$i]) {
+			$cantidad -= $precios[$i];
+			$precio_cantidad[$precios[$i]] += 1;
 		}
 		$i++;
 	}
 	
-	return $billete_cantidad;
+	return $precio_cantidad;
+}
+
+function obtenerTipo($precio, $cantidad) {
+	if ($precio > 2) {
+		return ($cantidad == 1) ? "billete" : "billetes";
+	}
+
+	return ($cantidad == 1) ? "moneda" : "monedas";
 }
 
 echo "<h1>Tarea 2.2.4</h1>";
@@ -39,19 +45,17 @@ echo "<h1>Tarea 2.2.4</h1>";
 $n_rand = rand(1000, 2000);
 
 // NOTA(srvariable): Estaría bien que esto fuese global, así no lo tendría que crear
-// de nuevo, pero he probado a hacer global $BILLETES sin éxito, probaré en el futuro
+// de nuevo, pero he probado a hacer global $precioS sin éxito, probaré en el futuro
 // otra manera
-$billetes = [500, 200, 100, 50, 20, 10, 5, 2, 1];
-$billete_cantidad = descomponerEnBilletes($n_rand);
+$precios = [500, 200, 100, 50, 20, 10, 5, 2, 1];
+$precio_cantidad = descomponerPrecio($n_rand);
 
-$length = count($billetes);
+$length = count($precios);
 echo "<p>${n_rand}€ son:</p>";
 for ($i = 0; $i < $length; $i++) {
-	if ($billetes[$i] > 2) {
-		echo "<p>" . $billetes[$i] . "€: " . $billete_cantidad[$billetes[$i]] . " billetes</p>";
-	} else {
-		echo "<p>" . $billetes[$i] . "€: " . $billete_cantidad[$billetes[$i]] . " monedas</p>";
-	}
+	$cantidad = $precio_cantidad[$precios[$i]];
+	$tipo = obtenerTipo($precios[$i], $cantidad);
+	echo "<p>" . $precios[$i] . "€: " . $cantidad . " " . $tipo . "</p>";
 }
 
 ?>
