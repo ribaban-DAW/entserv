@@ -30,10 +30,17 @@ for ($i = 0; $i <= 10; $i++) {
 echo "</tr>";
 echo "</thead>";
 echo "<tbody>";
+
+for ($i = 0; $i <= 10; $i++) {
+    for ($j = 0; $j <= 10; $j++) {
+        $tabla[$i][$j] = $i * $j;
+    }
+}
+
 for ($i = 0; $i <= 10; $i++) {
     echo "<tr>";
     for ($j = 0; $j <= 10; $j++) {
-        echo "<td>" . $j . " * " . $i . " = " . $i * $j . "</td>";
+        echo "<td>" . $j . " * " . $i . " = " . $tabla[$i][$j] . "</td>";
     }
     echo "</tr>";
 }
