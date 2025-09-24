@@ -16,8 +16,10 @@
 echo "<h1>Tarea 2.3.1</h1>";
 
 $dias_semana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+$i = date("N");
 
-// TODO(srvariable): No entiendo este ejercicio
+echo "<p>Hoy es " . $dias_semana[$i - 1] . ".</p>";
+
 ?>
 
 </body>
