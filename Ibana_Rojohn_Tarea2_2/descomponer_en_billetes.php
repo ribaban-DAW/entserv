@@ -44,11 +44,8 @@ echo "<h1>Tarea 2.2.4</h1>";
 
 $n_rand = rand(1000, 2000);
 
-// NOTA(srvariable): Estaría bien que esto fuese global, así no lo tendría que crear
-// de nuevo, pero he probado a hacer global $precioS sin éxito, probaré en el futuro
-// otra manera
-$precios = [500, 200, 100, 50, 20, 10, 5, 2, 1];
 $precio_cantidad = descomponerPrecio($n_rand);
+$precios = array_keys($precio_cantidad);
 
 $length = count($precios);
 echo "<p>${n_rand}€ son:</p>";
