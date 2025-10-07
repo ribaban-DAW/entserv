@@ -18,9 +18,15 @@
 if ($_SERVER['REQUEST_METHOD'] === "POST"
 	&& isset($_REQUEST['username']) 
 	&& isset($_REQUEST['password'])) {
-	session_start();
-	$_SESSION["username"] = $_REQUEST['username'];
-	echo "<a href=\"login.php\">Click para entrar a una página secreta</a>";
+	
+	if ($_REQUEST['username'] == "SrVariable"
+		&& $_REQUEST['password'] == 'ribaban2706') {
+			session_start();
+			$_SESSION["username"] = $_REQUEST['username'];
+			echo "<a href=\"login.php\">Click para entrar a una página secreta</a>";
+	} else {
+		echo "<p>El usuario o la contraseña no son correctos.</p>";
+	}
 }
 
 echo "<h1>Tarea 3.3.2</h1>";
