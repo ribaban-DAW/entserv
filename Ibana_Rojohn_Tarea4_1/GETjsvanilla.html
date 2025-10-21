@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function asyncFilter() {
+            let queryParams = "";
+
+            queryParams += `companyName=${document.getElementById("companyName").value}&`;
+            queryParams += `contactName=${document.getElementById("contactName").value}&`;
+            queryParams += `city=${document.getElementById("city").value}&`;
+            queryParams += `country=${document.getElementById("country").value}&`;
+
+            const xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("container").innerHTML = this.responseText;
+                }
+            }
+
+            xmlhttp.open("GET", `GETfilter.php?${queryParams}`, true);
+            xmlhttp.send();
+        }
+    </script>
+</head>
+<body>
+    <h1>Clientes de Northwind</h1>
+
+    <form>
+        <div>
+            <label for="companyName">Company Name</label>
+            <input id="companyName" name="companyName" type="text" onkeyup="asyncFilter()">
+        </div>
+        <div>
+            <label for="contactName">Contact Name</label>
+            <input id="contactName" name="contactName" type="text" onkeyup="asyncFilter()">
+        </div>
+        <div>
+            <label for="city">City</label>
+            <input id="city" name="city" type="text" onkeyup="asyncFilter()">
+        </div>
+        <div>
+            <label for="country">Country</label>
+            <input id="country" name="country" type="text" onkeyup="asyncFilter()">
+        </div>
+    </form>
+
+    <div id="container">
+        <script>asyncFilter(); // Para que salga la lista desde el principio</script>
+    </div>
+</body>
+</html>
