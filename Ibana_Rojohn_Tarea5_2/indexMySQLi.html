@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Conexión con MySQLi</h1>
+    <form action="connMySQLi.php" method="POST">
+        <div>
+            <label for="host">Nombre del servidor</label>
+            <input id="host" name="host" type="text" required>
+        </div>
+        <div>
+            <label for="username">Nombre de usuario</label>
+            <input id="username" name="username" type="text" required>
+        </div>
+        <div>
+            <label for="password">Contraseña</label>
+            <input id="password" name="password" type="password" required>
+        </div>
+        <div>
+            <label for="dbname">Nombre de la tabla</label>
+            <input id="dbname" name="dbname" type="text" required>
+        </div>
+        <button type="submit">Conectar</button>
+    </form>
+    <a href="index.html">Probar con PDO</a>
+</body>
+</html>

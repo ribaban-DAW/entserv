@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <script>
+        function applyFilter() {
+            let queryParams = "";
+
+            queryParams += `productName=${document.getElementById("productName").value}&`;
+            queryParams += `productLine=${document.getElementById("productLine").value}&`;
+
+            const xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("container").innerHTML = this.responseText;
+                }
+            }
+
+            xmlhttp.open("POST", `POSTfilter.php`, true);
+            xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xmlhttp.send(queryParams);
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <div>
+            <label for="productName">Product Name</label>
+            <input id="productName" name="productName" type="text" onkeyup="applyFilter()">
+        </div>
+        <div>
+            <label for="productLine">Product Line</label>
+            <input id="productLine" name="productLine" type="text" onkeyup="applyFilter()">
+        </div>
+    </form>
+
+    <div id="container"></div>
+    <script>
+        applyFilter();
+    </script>
+</body>
+</html>
