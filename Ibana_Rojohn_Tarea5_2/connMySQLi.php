@@ -10,9 +10,7 @@ try {
     echo "<p>Conectado correctamente utilizando MySQLi " . mysqli_get_host_info($conn) . "</p>";
     $query = "SHOW TABLES";
     $result = mysqli_query($conn, $query);
-    mysqli_fetch_all($result, MYSQLI_ASSOC);
-    var_dump($result);
-
+    var_dump(mysqli_fetch_all($result, MYSQLI_ASSOC));
     mysqli_free_result($result);
     mysqli_close($conn);
 } catch (Exception $e) {

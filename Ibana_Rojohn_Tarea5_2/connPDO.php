@@ -12,8 +12,7 @@ try {
     $query = "SHOW TABLES";
     $stmt = $conn->prepare($query);
     $stmt->execute();
-    $results = $stmt->fetchall();
-    var_dump($results);
+    var_dump($stmt->fetchall(PDO::FETCH_ASSOC));
 } catch (PDOException $pe) {
     die("No se ha podido realizar la conexión. Motivo: " . $pe->getMessage());
 }
