@@ -1,0 +1,15 @@
+@extends('layouts.operation')
+@section('html')
+    @section('headTitle')
+        Multiplicación
+    @endsection
+    @section('mainTitle')
+        Multiplicación
+    @endsection
+    @section('operationEndpoint')
+        "/calculadora/mult"
+    @endsection
+    @section('operationSubmit')
+        Multiplicar
+    @endsection
+@endsection

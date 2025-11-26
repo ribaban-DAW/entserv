@@ -1,0 +1,15 @@
+@extends('layouts.operation')
+@section('html')
+    @section('headTitle')
+        Suma
+    @endsection
+    @section('mainTitle')
+        Suma
+    @endsection
+    @section('operationEndpoint')
+        "/calculadora/suma"
+    @endsection
+    @section('operationSubmit')
+        Sumar
+    @endsection
+@endsection

@@ -1,0 +1,15 @@
+@extends('layouts.operation')
+@section('html')
+    @section('headTitle')
+        División
+    @endsection
+    @section('mainTitle')
+        División
+    @endsection
+    @section('operationEndpoint')
+        "/calculadora/div"
+    @endsection
+    @section('operationSubmit')
+        Dividir
+    @endsection
+@endsection

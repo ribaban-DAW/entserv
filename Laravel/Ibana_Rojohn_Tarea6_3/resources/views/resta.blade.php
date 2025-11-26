@@ -1,0 +1,15 @@
+@extends('layouts.operation')
+@section('html')
+    @section('headTitle')
+        Resta
+    @endsection
+    @section('mainTitle')
+        Resta
+    @endsection
+    @section('operationEndpoint')
+        "/calculadora/resta"
+    @endsection
+    @section('operationSubmit')
+        Restar
+    @endsection
+@endsection
