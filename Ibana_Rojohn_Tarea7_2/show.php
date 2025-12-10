@@ -27,7 +27,8 @@ foreach ($types as $typeIndex) {
 $output .= "</h2>";
 
 $output .= "<h2>Movimientos</h2>";
-for ($i = 0; $i < 4; $i++) {
+$maxMoves = count($moves) > 4 ? 4 : count($moves);
+for ($i = 0; $i < $maxMoves; $i++) {
     $moveName = $moves[$i]["move"]["name"];
     $output .= "<p>$moveName</p>";
 }
