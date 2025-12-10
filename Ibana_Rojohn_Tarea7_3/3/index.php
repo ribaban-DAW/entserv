@@ -15,12 +15,23 @@
         send_response(200, "OK", $data);
     }
 
-    header("Content-Type:application/json");
-    
-    $op = isset($_REQUEST["op"]) ? strtolower($_REQUEST["op"]) : null;
-    if (is_null($op)) {
-        return send_response(400, "op not defined");
+    $op = null;
+    $n1 = null;
+    $n2 = null;
+
+    if ($_SERVER["REQUEST_METHOD"] == "GET") {
+        $op = $_GET["op"] ?? null;
+    } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $data = json_decode(file_get_contents("php://input"), true);
+        $op = $data["op"];
+        if (is_null($op)) {
+            return send_response(400, "op not defined");
+        }
+    } else {
+        return send_response(400, "invalid method");
     }
+
+    header("Content-Type:application/json");
 
     $res = 0;
     switch ($op) {

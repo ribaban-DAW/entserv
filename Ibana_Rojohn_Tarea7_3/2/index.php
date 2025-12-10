@@ -17,17 +17,18 @@
 
     header("Content-Type:application/json");
     
-    $op = isset($_POST["op"]) ? strtolower($_POST["op"]) : null;
+    $data = json_decode(file_get_contents("php://input"), true);
+    $op = $data["op"] ?? null;
     if (is_null($op)) {
         return send_response(400, "op not defined");
     }
 
-    $n1 = isset($_POST["n1"]) ? $_POST["n1"] : null;
+    $n1 = $data["n1"] ?? null;
     if (is_null($n1)) {
         return send_response(400, "n1 not defined");
     }
 
-    $n2 = isset($_POST["n2"]) ? $_POST["n2"] : null;
+    $n2 = $data["n2"] ?? null;
     if (is_null($n2)) {
         return send_response(400, "n2 not defined");
     }
