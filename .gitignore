@@ -1,2 +1,4 @@
 *.zip
 pdoconfig.php
+.env
+env.php
