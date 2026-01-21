@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block body %}
+    <h1>Inicio</h1>
+    <ul class="list-unstyled">
+        <li class="nav-item mb-2"><a class="btn btn-primary" href="{{ path('app_flor_index') }}">Flores</a></li>
+        <li class="nav-item"><a class="btn btn-primary" href="{{ path('app_tipo_index') }}">Tipos</a></li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Crear Flor{% endblock %}
+
+{% block body %}
+    <h1>Crear Flor</h1>
+
+    {{ include('flor/_form.html.twig') }}
+
+    <a class="btn btn-secondary my-2" href="{{ path('app_flor_index') }}">Volver</a>
+{% endblock %}

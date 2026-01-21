@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Flores{% endblock %}
+
+{% block body %}
+    <h1>Flores</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Color</th>
+                <th>Tamaño</th>
+                <th>País</th>
+                <th>Tipo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for flor in flores %}
+            <tr>
+                <td>{{ flor.id }}</td>
+                <td>{{ flor.Nombre }}</td>
+                <td>{{ flor.Color }}</td>
+                <td>{{ flor.Tamano }}</td>
+                <td>{{ flor.Pais }}</td>
+                <td>{{ flor.Tipo.Nombre }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_flor_show', {'id': flor.id}) }}">Mostrar</a>
+                    <a class="btn btn-warning" href="{{ path('app_flor_edit', {'id': flor.id}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">No hay flores</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('app_flor_new') }}">Crear Flor</a>
+{% endblock %}
