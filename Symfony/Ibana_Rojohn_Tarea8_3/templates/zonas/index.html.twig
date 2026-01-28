@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Zonas{% endblock %}
+
+{% block body %}
+    <h1>Zonas</h1>
+
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        <p class="alert alert-danger">{{ flashMessage }}</p>
+    {% endfor %}
+
+    <a class="btn btn-primary" href="{{ path('app_zonas_new') }}">Crear Zona</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Población</th>
+                <th>Provincia</th>
+                <th>Código Postal</th>
+                <th>País</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for zona in zonas %}
+            <tr>
+                <td>{{ zona.id }}</td>
+                <td>{{ zona.poblacion }}</td>
+                <td>{{ zona.provincia }}</td>
+                <td>{{ zona.codigopostal }}</td>
+                <td>{{ zona.pais }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_zonas_show', {'id': zona.id}) }}">Mostrar</a>
+                    <a class="btn btn-warning" href="{{ path('app_zonas_edit', {'id': zona.id}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">No hay registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

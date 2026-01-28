@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Piedra{% endblock %}
+
+{% block body %}
+    <h1>Piedra</h1>
+
+    <a class="btn btn-primary" href="{{ path('app_piedra_new') }}">Crear Piedra</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Tipo</th>
+                <th>Tamaño</th>
+                <th>Color</th>
+                <th>Composición</th>
+                <th>Cantidad</th>
+                <th>Zona</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for piedra in piedras %}
+            <tr>
+                <td>{{ piedra.id }}</td>
+                <td>{{ piedra.tipo }}</td>
+                <td>{{ piedra.tamano }}</td>
+                <td>{{ piedra.color }}</td>
+                <td>{{ piedra.composicion }}</td>
+                <td>{{ piedra.cantidad }}</td>
+                <td>{{ piedra.zona.poblacion }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_piedra_show', {'id': piedra.id}) }}">Mostrar</a>
+                    <a class="btn btn-warning" href="{{ path('app_piedra_edit', {'id': piedra.id}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">No hay registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

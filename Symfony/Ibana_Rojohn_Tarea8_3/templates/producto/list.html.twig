@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listado{% endblock %}
+
+{% block body %}
+    <h1>Listado</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Producto</th>
+                <th>Tipo Piedra</th>
+                <th>Tamaño</th>
+                <th>Origen</th>
+                <th>Código Pintura</th>
+                <th>Color Pintura</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for producto in productos %}
+            <tr>
+                <td>{{ producto.id }}</td>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.piedra.tipo }}</td>
+                <td>{{ producto.piedra.tamano }}</td>
+                <td>{{ producto.piedra.zona.poblacion }}, {{ producto.piedra.zona.provincia }}</td>
+                <td>{{ producto.pintura.codigo }}</td>
+                <td>{{ producto.pintura.color }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">No hay registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block body %}
+    <h1>Inicio</h1>
+    <ul class="list-unstyled">
+      <a class="btn btn-secondary" href="{{ path('app_piedra_index') }}">Piedra</a>
+      <a class="btn btn-secondary" href="{{ path('app_zonas_index') }}">Zonas</a>
+      <a class="btn btn-secondary" href="{{ path('app_pintura_index') }}">Pintura</a>
+      <a class="btn btn-secondary" href="{{ path('app_producto_index') }}">Producto</a>
+      <a class="btn btn-secondary" href="{{ path('app_listado_index') }}">Listado</a>
+    </ul>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar Pintura{% endblock %}
+
+{% block body %}
+    <h1>Editar Pintura</h1>
+
+    {{ include('pintura/_form.html.twig', {'button_label': 'Actualizar'}) }}
+
+    <a class="btn btn-secondary my-2" href="{{ path('app_pintura_index') }}">Volver</a>
+
+    {{ include('pintura/_delete_form.html.twig') }}
+{% endblock %}

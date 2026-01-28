@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Piedra{% endblock %}
+
+{% block body %}
+    <h1>Piedra</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ piedra.id }}</td>
+            </tr>
+            <tr>
+                <th>Tipo</th>
+                <td>{{ piedra.tipo }}</td>
+            </tr>
+            <tr>
+                <th>Tamaño</th>
+                <td>{{ piedra.tamano }}</td>
+            </tr>
+            <tr>
+                <th>Color</th>
+                <td>{{ piedra.color }}</td>
+            </tr>
+            <tr>
+                <th>Composición</th>
+                <td>{{ piedra.composicion }}</td>
+            </tr>
+            <tr>
+                <th>Cantidad</th>
+                <td>{{ piedra.cantidad }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-secondary my-2" href="{{ path('app_piedra_index') }}">Volver</a>
+
+    <a class="btn btn-primary" href="{{ path('app_piedra_edit', {'id': piedra.id}) }}">Editar</a>
+
+    {{ include('piedra/_delete_form.html.twig') }}
+{% endblock %}

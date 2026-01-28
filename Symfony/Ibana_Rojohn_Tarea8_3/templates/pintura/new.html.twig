@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Crear Pintura{% endblock %}
+
+{% block body %}
+    <h1>Crear Pintura</h1>
+
+    {{ include('pintura/_form.html.twig') }}
+
+    <a class="btn btn-secondary my-2" href="{{ path('app_pintura_index') }}">Volver</a>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Producto{% endblock %}
+
+{% block body %}
+    <h1>Producto</h1>
+
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        <p class="alert alert-danger">{{ flashMessage }}</p>
+    {% endfor %}
+
+    <a class="btn btn-primary" href="{{ path('app_producto_new') }}">Crear Producto</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Piedra</th>
+                <th>Pintura</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for producto in productos %}
+            <tr>
+                <td>{{ producto.id }}</td>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.piedra.tipo }}</td>
+                <td>{{ producto.pintura.color }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_producto_show', {'id': producto.id}) }}">Mostrar</a>
+                    <a class="btn btn-warning" href="{{ path('app_producto_edit', {'id': producto.id}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">No hay registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

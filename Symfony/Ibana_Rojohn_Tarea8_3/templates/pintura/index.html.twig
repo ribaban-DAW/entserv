@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pintura{% endblock %}
+
+{% block body %}
+    <h1>Pintura</h1>
+
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        <p class="alert alert-danger">{{ flashMessage }}</p>
+    {% endfor %}
+
+    <a class="btn btn-primary" href="{{ path('app_pintura_new') }}">Crear Pintura</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Código</th>
+                <th>Color</th>
+                <th>Cantidad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pintura in pinturas %}
+            <tr>
+                <td>{{ pintura.id }}</td>
+                <td>{{ pintura.codigo }}</td>
+                <td>{{ pintura.color }}</td>
+                <td>{{ pintura.cantidad }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_pintura_show', {'id': pintura.id}) }}">Mostrar</a>
+                    <a class="btn btn-warning" href="{{ path('app_pintura_edit', {'id': pintura.id}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">No hay registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Crear Piedra{% endblock %}
+
+{% block body %}
+    <h1>Crear Piedra</h1>
+
+    {{ include('piedra/_form.html.twig') }}
+
+    <a class="btn btn-secondary my-2" href="{{ path('app_piedra_index') }}">Volver</a>
+{% endblock %}
