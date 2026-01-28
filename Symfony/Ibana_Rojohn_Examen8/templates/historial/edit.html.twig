@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar Historial{% endblock %}
+
+{% block body %}
+    <h1>Editar Historial</h1>
+
+    {{ include('historial/_form.html.twig', {'button_label': 'Actualizar'}) }}
+
+    <a class="btn btn-secondary my-2" href="{{ path('app_historial_index') }}">Volver</a>
+
+    {{ include('historial/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Doctor{% endblock %}
+
+{% block body %}
+    {# Robado de https://stackoverflow.com/questions/14449967/symfony-setting-flash-and-checking-in-twig #}
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        <p class="alert alert-danger">{{ flashMessage }}</p>
+    {% endfor %}
+
+    <h1>Doctor</h1>
+
+    <a class="btn btn-primary" href="{{ path('app_doctor_new') }}">Crear Doctor</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Especialidad</th>
+                <th>Nombre</th>
+                <th>Historial</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for doctor in doctors %}
+            <tr>
+                <td>{{ doctor.id }}</td>
+                <td>{{ doctor.Especialidad }}</td>
+                <td>{{ doctor.Nombre }}</td>
+                <td>{{ doctor.Historial.CodigoHistorial }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_doctor_show', {'id': doctor.id}) }}">Mostrar</a>
+                    <a class="btn btn-warning" href="{{ path('app_doctor_edit', {'id': doctor.id}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">No hay registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

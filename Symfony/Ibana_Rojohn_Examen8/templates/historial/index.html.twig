@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Historial{% endblock %}
+
+{% block body %}
+    {# Robado de https://stackoverflow.com/questions/14449967/symfony-setting-flash-and-checking-in-twig #}
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        <p class="alert alert-danger">{{ flashMessage }}</p>
+    {% endfor %}
+    
+    <h1>Historial</h1>
+
+    <a class="btn btn-primary" href="{{ path('app_historial_new') }}">Crear Historial</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fecha</th>
+                <th>Paciente</th>
+                <th>CodigoHistorial</th>
+                <th>Especialista</th>
+                <th>Alergias</th>
+                <th>Antecedentes</th>
+                <th>Síntomas</th>
+                <th>Diagnóstico</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for historial in historials %}
+            <tr>
+                <td>{{ historial.id }}</td>
+                <td>{{ historial.Fecha ? historial.Fecha|date('d-m-o H:i:s') : '' }}</td>
+                <td>{{ historial.Paciente }}</td>
+                <td>{{ historial.CodigoHistorial }}</td>
+                <td>{{ historial.Especialista }}</td>
+                <td>{{ historial.Alergias }}</td>
+                <td>{{ historial.Antecedentes }}</td>
+                <td>{{ historial.Sintomas }}</td>
+                <td>{{ historial.Diagnostico }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_historial_show', {'id': historial.id}) }}">Mostrar</a>
+                    <a class="btn btn-warning" href="{{ path('app_historial_edit', {'id': historial.id}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">No hay registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

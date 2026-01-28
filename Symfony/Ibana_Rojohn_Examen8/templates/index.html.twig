@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block body %}
+    <h1>Inicio</h1>
+    <ul class="list-unstyled">
+        <li class="nav-item"><a class="btn btn-primary" href="{{ path('app_paciente_index') }}">Paciente</a></li>
+        <li class="nav-item mb-2"><a class="btn btn-primary" href="{{ path('app_doctor_index') }}">Doctor</a></li>
+        <li class="nav-item"><a class="btn btn-primary" href="{{ path('app_historial_index') }}">Historial</a></li>
+    </ul>
+{% endblock %}

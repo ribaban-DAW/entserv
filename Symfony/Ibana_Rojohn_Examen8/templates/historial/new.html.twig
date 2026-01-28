@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Crear Historial{% endblock %}
+
+{% block body %}
+    <h1>Crear Historial</h1>
+
+    {{ include('historial/_form.html.twig') }}
+
+    <a class="btn btn-secondary my-2" href="{{ path('app_historial_index') }}">Volver</a>
+{% endblock %}

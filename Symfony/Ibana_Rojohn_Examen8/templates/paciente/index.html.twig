@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paciente{% endblock %}
+
+{% block body %}
+    <h1>Paciente</h1>
+
+    <a class="btn btn-primary" href="{{ path('app_paciente_new') }}">Crear Paciente</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Sexo</th>
+                <th>Edad</th>
+                <th>Doctor</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for paciente in pacientes %}
+            <tr>
+                <td>{{ paciente.id }}</td>
+                <td>{{ paciente.Nombre }}</td>
+                <td>{{ paciente.Apellidos }}</td>
+                <td>{{ paciente.Sexo }}</td>
+                <td>{{ paciente.Edad }}</td>
+                <td>{{ paciente.Doctor.Nombre }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_paciente_show', {'id': paciente.id}) }}">Mostrar</a>
+                    <a class="btn btn-warning" href="{{ path('app_paciente_edit', {'id': paciente.id}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">No hay registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

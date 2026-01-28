@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Crear Paciente{% endblock %}
+
+{% block body %}
+    <h1>Crear Paciente</h1>
+
+    {{ include('paciente/_form.html.twig') }}
+
+    <a class="btn btn-secondary my-2" href="{{ path('app_paciente_index') }}">Volver</a>
+{% endblock %}

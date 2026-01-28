@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar Paciente{% endblock %}
+
+{% block body %}
+    <h1>Editar Paciente</h1>
+
+    {{ include('paciente/_form.html.twig', {'button_label': 'Actualizar'}) }}
+
+    <a class="btn btn-secondary my-2" href="{{ path('app_paciente_index') }}">Volver</a>
+
+    {{ include('paciente/_delete_form.html.twig') }}
+{% endblock %}
